@@ -13,13 +13,13 @@
         fieldset{width:50%;border-color:plum;border-radius: 10px;border-style: groove;box-shadow: rosybrown 5px 5px 3px;border-width:3px;}
     </style>
     <script>
-        function processFormData(){
-            const formElement=document.getElementById("form");
-            const weight = formElement[0].value;
-            const height = formElement[1].value;
-            var result = (weight)/((height/100)**2);
-            alert("BMI值是"+result);
+        function cal() {
+            height = document.getElementById("height").value;
+            weight = document.getElementById("weight").value;
+            BMI = weight/(height/100)**2;
+            document.getElementById("BMI").value = BMI;
         }
+        
     </script>
   </head>
   <body>
@@ -29,11 +29,10 @@
             <div class="col-sm-8">
                 <fieldset>
                     <legend style="font-size: larger;font-style: italic;">BMI計算</legend>
-                    <form name="form" id="form">
-                        <p>體重：<input type="number" id="weight" name="weight" required/>kg</p> 
-                        <p>身高：<input type="number" id="height" name="height" required/>cm</p>
-                        <p style="font-size: large;">BMI：<input type="button" name="submit" value="送出" onclick="processFormData()"></input></p>
-                    </form>
+                        <p>體重：<input type="number" id="weight" required/>kg</p> 
+                        <p>身高：<input type="number" id="height"required/>cm</p>
+                        <p><button onclick="cal()">計算</button></p>
+                        <p style="font-size: large;">BMI:<input type="text" id="BMI"></p>
                 </fieldset>
             </div>
         </div>
